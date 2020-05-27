@@ -1,0 +1,339 @@
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      font-size: 14px;
+      font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+    
+    .container {
+      max-width: 800px;
+      min-width: 500px;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      margin: 0 auto;
+    }
+    
+    .contaner_header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      border-bottom: 1px solid hsla(0, 0%, 53.3%, .4);
+    }
+    
+    .contaner_bottom {
+      position: fixed;
+      left: 0px;
+      bottom: 0;
+      width: 100%;
+      height: 150px;
+      border-top: 1px solid hsla(0, 0%, 53.3%, .4);
+    }
+    
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    ul li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    #configurator {
+      position: relative;
+      margin: 0 auto;
+      display: flex;
+    }
+    
+    #configurator > li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    
+    #configurator > li:first-child {
+      margin-left: 25px;
+    }
+    
+    #configurator > li > .tab {
+      position: absolute;
+      left: 0;
+      top: 80px;
+      opacity: 0;
+      margin-bottom: 170px;
+      -webkit-transition: opacity 2s;
+      -moz-transition: opacityh 2s;
+      -o-transition: opacity 2s;
+      transition: opacity 2s;
+    }
+    
+    #configurator > li > .tab li {
+      display: none;
+    }
+    
+    #configurator > li.active > span,
+    #configurator > li.active:hover > span,
+    #configurator > li.disabled:hover > span,
+    #configurator > li.disabled > span {
+      opacity: .56;
+      cursor: default;
+      color: #000;
+    }
+    
+    #configurator > li:hover > span {
+      color: #06c;
+      cursor: pointer;
+    }
+    
+    #configurator > li.active > .tab {
+      display: block;
+      border-bottom: 1px solid #d6d6d6;
+      border-radius: 3px;
+      -webkit-transition: opacity 2s;
+      -moz-transition: opacity 2s;
+      -o-transition: opacity 2s;
+      transition: opacity 2s;
+      width: 100%;
+      opacity: 1;
+    }
+    
+    #configurator > li.active > .tab li {
+      display: block;
+    }
+    
+    #configurator > li > span {
+      font-size: 18px;
+      line-height: 50px;
+    }
+    
+    .tab > li > span {
+      font-size: 16px;
+      border-radius: 3px;
+      display: block;
+      border: 1px solid #d6d6d6;
+      padding: 18px 25px;
+      cursor: pointer;
+      z-index: 999;
+    }
+    
+    .tab > li:hover > span {
+      border-color: #888;
+      color: #0070c9;
+    }
+    
+    .tab > li.disabled > span,
+    .tab > li.disabled:hover > span {
+      opacity: .56;
+      cursor: default;
+      color: #000;
+      border: 1px solid #d6d6d6;
+    }
+    
+    .tab > li > span > i {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      display: block;
+      float: right;
+    }
+    
+    .tab > li > span > i:before,
+    .tab > li > span > i:after {
+      content: "";
+      position: absolute;
+      background-color: black;
+      transition: transform 0.25s ease-out;
+    }
+    
+    .tab > li > span > i:before {
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      margin-left: -2px;
+    }
+
+    
+    .tab > li > span > i:after {
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      margin-top: -2px;
+    }
+    
+    .tab > li.active span i:before {
+      transform: rotate(90deg);
+    }
+    
+    .tab > li.active span i:after {
+      transform: rotate(180deg);
+    }
+    
+    .params {
+      display: block;
+      max-height: 0px;
+      padding: 0 25px;
+      border-left: 1px solid #d6d6d6;
+      border-right: 1px solid #d6d6d6;
+      -webkit-transition: max-height 1s;
+      -moz-transition: max-height 1s;
+      -o-transition: max-height 1s;
+      transition: max-height 1s;
+    }
+    
+    .params li {
+      opacity: 0;
+      -webkit-transition: opacity 0.5s;
+      -moz-transition: opacity 0.5s;
+      -o-transition: opacity 0.5s;
+      transition: opacity 0.5s;
+    }
+    
+    .tab > li.active .params {
+      max-height: 800px;
+      display: block;
+      padding: 0 25px;
+      border-left: 1px solid #d6d6d6;
+      border-right: 1px solid #d6d6d6;
+      -webkit-transition: max-height 0.5s;
+      -moz-transition: max-height 0.5s;
+      -o-transition: max-height 0.5s;
+      transition: max-height 0.5s;
+    }
+    
+    .tab > li.active .params li {
+      opacity: 1;
+      -webkit-transition: opacity 1s;
+      -moz-transition: opacity 1s;
+      -o-transition: opacity 1s;
+      transition: opacity 1s;
+    }
+    
+    .tab > li .params li:first-child,
+    .tab > li.active .params li:first-child {
+      padding-top: 18px;
+    }
+    
+    .tab > li .params li:last-child,
+    .tab > li.active .params li:last-child {
+      padding-bottom: 18px;
+    }
+    
+    .params li input {
+      display: none;
+    }
+    
+    .params li label {
+      position: relative;
+      padding-left: 38px;
+      font-size: 16px;
+      line-height: 35px;
+      display: block;
+      cursor: pointer;
+    }
+
+    .params li input.disabled + label {
+      opacity:0.56;
+    }
+    
+    .params li label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #000;
+      -webkit-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+    
+    .params li label:after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: transparent;
+      border-radius: 50%;
+      top: 11px;
+      left: 5px;
+      -webkit-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+    
+    .params li input:checked + label:after {
+      background-color: #000;
+    }
+    
+    .params li label span {
+      font-size: 14px;
+      display: block;
+      opacity: .56;
+    }
+    
+    #result {
+      height: 150px;
+      max-width: 750px;
+      min-width: 450px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 18px 25px;
+    }
+    
+    #result li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    
+    @media all and (max-width: 600px) {
+      .params li label span {
+        font-size: 11px;
+      }
+      .params li label {
+        position: relative;
+        padding-left: 38px;
+        font-size: 11px;
+        line-height: 22px;
+        display: block;
+        cursor: pointer;
+      }
+      .params li label:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 2px;
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        border: 1px solid #000;
+        -webkit-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        transition: all 0.2s;
+      }
+      .params li label:after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background-color: transparent;
+        border-radius: 50%;
+        top: 7px;
+        left: 5px;
+        -webkit-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        transition: all 0.2s;
+      }
+      #result {
+        font-size: 10px;
+      }
+    }
